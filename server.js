@@ -279,13 +279,9 @@ app.delete("/api/save", authMiddleware, async (req, res) => {
 // =====================
 // START
 // =====================
-initDatabase()
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log(`🐸 Frog Empire running at http://localhost:${PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.error("Failed to initialize database:", err);
-    process.exit(1);
-  });
+initDatabase().catch((err) => {
+  console.error("Failed to initialize database:", err);
+});
+
+// Export the app for Vercel
+module.exports = app;
