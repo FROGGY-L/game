@@ -2275,17 +2275,35 @@ function bootGame() {
 // =====================================================================
 // INIT — check for existing session
 // =====================================================================
-function init() {
+async function init() {
   resizeCanvas();
   setAuthMode("login");
 
-  const session = localStorage.getItem(SESSION_KEY);
-  if (session) {
-    const users = loadUsers();
-    if (users[session.toLowerCase()]) {
-      startSession(users[session.toLowerCase()].username);
-      return;
+  const storedToken = localStorage.getItem(TOKEN_KEY);
+  const storedUser = localStorage.getItem(USERNAME_KEY);
+
+  if (storedToken && storedUser) {
+    authToken = storedToken;
+    currentUser = storedUser;
+    try {
+      const res = await fetch(API_BASE + "/api/save", {
+        headers: authHeaders(),
+      });
+      if (res.ok) {
+        $("auth-screen").style.display = "none";
+        $("game").style.display = "grid";
+        $("username-display").textContent = currentUser;
+        startPresence();
+        await bootGame();
+        return;
+      }
+    } catch (err) {
+      /* fall through */
     }
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(USERNAME_KEY);
+    authToken = null;
+    currentUser = null;
   }
 
   $("auth-screen").style.display = "flex";
