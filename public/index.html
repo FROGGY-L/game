@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Frog Empire: Idle Kingdom</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- LOGIN SCREEN -->
+    <div id="auth-screen">
+        <div id="auth-box">
+            <h1>🐸 FROG EMPIRE</h1>
+            <p class="subtitle">Idle Kingdom</p>
+
+            <div id="auth-tabs">
+                <button class="auth-tab active" data-auth="login">LOGIN</button>
+                <button class="auth-tab" data-auth="register">REGISTER</button>
+            </div>
+
+            <div id="auth-form">
+                <label for="username">USERNAME</label>
+                <input type="text" id="username" maxlength="16" autocomplete="username" placeholder="Enter username">
+
+                <label for="password">PASSWORD</label>
+                <input type="password" id="password" maxlength="64" autocomplete="current-password"
+                    placeholder="Enter password">
+
+                <div id="auth-error"></div>
+
+                <button id="auth-submit" class="btn primary">LOGIN</button>
+
+                <div class="auth-footer">
+                    <span id="auth-switch-text">No account?</span>
+                    <a href="#" id="auth-switch-link">Register</a>
+                </div>
+            </div>
+
+            <div class="auth-note">
+                Progress is saved securely on the server.
+            </div>
+        </div>
+    </div>
+
+    <!-- GAME (same as before) -->
+    <div id="game" style="display:none;">
+        <div id="topbar">
+            <div class="stat" id="stat-coins">
+                <span class="icon">🪙</span>
+                <div>
+                    <div class="label">COINS</div>
+                    <div class="value" id="coins">0</div>
+                </div>
+            </div>
+            <div class="stat" id="stat-idle">
+                <span class="icon">📈</span>
+                <div>
+                    <div class="label">IDLE / SEC</div>
+                    <div class="value" id="cps">0</div>
+                </div>
+            </div>
+            <div class="stat" id="stat-level">
+                <span class="icon">⭐</span>
+                <div>
+                    <div class="label">LEVEL</div>
+                    <div class="value" id="level">1</div>
+                </div>
+            </div>
+            <div class="stat" id="stat-gems">
+                <span class="icon">💎</span>
+                <div>
+                    <div class="label">GEMS</div>
+                    <div class="value" id="gems">0</div>
+                </div>
+            </div>
+            <div class="stat" id="stat-user">
+                <span class="icon">👤</span>
+                <div>
+                    <div class="label">PLAYER</div>
+                    <div class="value" id="username-display">—</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="main">
+            <div id="battle">
+                <canvas id="scene"></canvas>
+                <div id="stage-label">🌾 Muddy Marsh — Idle Mode</div>
+                <div id="idle-badge">
+                    <div>+<span id="idle-rate">0</span>/s</div>
+                    <div class="sub">IDLE INCOME</div>
+                </div>
+                <div id="monster-hp">
+                    <div class="fill"></div>
+                    <div class="text"></div>
+                </div>
+                <div id="wave-info"></div>
+                <div id="hero-strip"></div>
+                <button id="battle-cta">⚔️ START BATTLE</button>
+                <button id="retreat-btn">🏳️ RETREAT</button>
+                <div id="notify"></div>
+            </div>
+
+            <div id="tabs">
+                <div class="tab active" data-tab="heroes">⚔️ HEROES</div>
+                <div class="tab" data-tab="equip">🛡️ GEAR</div>
+                <div class="tab" data-tab="buildings">🏗️ GUILD</div>
+                <div class="tab" data-tab="stages">🗺️ STAGES</div>
+                <div class="tab" data-tab="players">👥 PLAYERS</div>
+                <div class="tab locked" data-tab="prestige">💎 RESET</div>
+            </div>
+        </div>
+
+        <div id="bottombar">
+            <div class="save-info">
+                <span class="dot"></span>
+                <span>Saved <span id="savetime">—</span></span>
+            </div>
+            <div class="btns">
+                <button class="btn" id="saveBtn">💾 Save</button>
+                <button class="btn" id="logoutBtn">🚪 Logout</button>
+                <button class="btn danger" id="resetBtn">🗑️ Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
