@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>Frog Empire: Idle Kingdom</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐸</text></svg>">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐸</text></svg>">
 </head>
 
 <body>
@@ -45,7 +46,7 @@
         </div>
     </div>
 
-    <!-- GAME (same as before) -->
+    <!-- GAME -->
     <div id="game" style="display:none;">
         <div id="topbar">
             <div class="stat" id="stat-coins">
@@ -104,13 +105,16 @@
                 <div id="notify"></div>
             </div>
 
-            <div id="tabs">
-                <div class="tab active" data-tab="heroes">⚔️ HEROES</div>
-                <div class="tab" data-tab="equip">🛡️ GEAR</div>
-                <div class="tab" data-tab="buildings">🏗️ GUILD</div>
-                <div class="tab" data-tab="stages">🗺️ STAGES</div>
-                <div class="tab" data-tab="players">👥 PLAYERS</div>
-                <div class="tab locked" data-tab="prestige">💎 RESET</div>
+            <div id="panel">
+                <div id="tabs">
+                    <div class="tab active" data-tab="heroes">⚔️ HEROES</div>
+                    <div class="tab" data-tab="equip">🛡️ GEAR</div>
+                    <div class="tab" data-tab="buildings">🏗️ GUILD</div>
+                    <div class="tab" data-tab="stages">🗺️ STAGES</div>
+                    <div class="tab" data-tab="players">👥 PLAYERS</div>
+                    <div class="tab locked" data-tab="prestige">💎 RESET</div>
+                </div>
+                <div id="tab-content"></div>
             </div>
         </div>
 
